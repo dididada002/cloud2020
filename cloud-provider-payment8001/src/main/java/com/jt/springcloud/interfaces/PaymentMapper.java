@@ -2,10 +2,11 @@ package com.jt.springcloud.interfaces;
 
 import com.jt.springcloud.entity.Payment;
 import com.jt.springcloud.entity.PaymentExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface PaymentMapper {
     long countByExample(PaymentExample example);
 
