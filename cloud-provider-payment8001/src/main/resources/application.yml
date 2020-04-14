@@ -13,6 +13,17 @@ spring:
     username: root
     password: Jt!!2018
 
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #true表示向注册中心注册自己
+    register-with-eureka: true
+    #true表示自己端就是注册中心，职责就是维护服务实例，并不需要去检索服务
+    fetch-registry: true
+    service-url:
+      #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址
+      defaultZone: http://${eureka.instance.hostname}:7001/eureka
 
 
 mybatis:
