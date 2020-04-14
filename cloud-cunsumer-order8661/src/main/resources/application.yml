@@ -15,4 +15,7 @@ eureka:
     fetch-registry: true
     service-url:
       #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址
-      defaultZone: http://${eureka.instance.hostname}:7001/eureka
+      #单机版
+      #      defaultZone: http://${eureka.instance.hostname}:7001/eureka
+      #集群版，注册地址以逗号隔开
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
