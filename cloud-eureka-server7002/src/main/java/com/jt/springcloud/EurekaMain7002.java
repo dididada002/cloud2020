@@ -10,10 +10,11 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  */
 @SpringBootApplication
 @EnableEurekaServer
-public class EurekaMain7001 {
-
-    /*访问地址：http://eureka7001.com:7001/*/
+public class EurekaMain7002 {
+    /**
+    * http://eureka7002.com:7002/
+    * */
     public static void main(String[] args) {
-        SpringApplication.run(EurekaMain7001.class);
+        SpringApplication.run(EurekaMain7002.class);
     }
 }
