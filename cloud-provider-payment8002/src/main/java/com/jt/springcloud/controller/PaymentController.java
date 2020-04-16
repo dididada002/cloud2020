@@ -8,6 +8,7 @@ import com.jt.springcloud.service.PayService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -22,6 +23,9 @@ public class PaymentController {
     @Autowired
     private PayService payService;
 
+    @Value("${server.port}")
+    private String port;
+
     @PostMapping("/create")
     public Result create(@RequestBody PayCreateForm form){
         log.info("pay.create requestbody: " + JSON.toJSONString(form));
@@ -29,7 +33,9 @@ public class PaymentController {
         BeanUtils.copyProperties(form,bean);
         long result = payService.create(bean);
         log.info("pay.create result: " + result);
-        return Result.success(result);
+        Result success = Result.success(result);
+        success.setMsg("port; "+ port);
+        return success;
     }
 
     @GetMapping("/get/by/{id}")
@@ -37,7 +43,9 @@ public class PaymentController {
         log.info("pay.getById requestbody: " + id);
         Payment result = payService.getById(id);
         log.info("pay.getById requestbody: " + result.toString());
-        return Result.success(result);
+        Result success = Result.success(result);
+        success.setMsg("port; "+ port);
+        return success;
     }
 
 
