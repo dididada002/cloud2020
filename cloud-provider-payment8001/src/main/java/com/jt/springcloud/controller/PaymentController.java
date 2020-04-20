@@ -56,6 +56,11 @@ public class PaymentController {
         return success;
     }
 
+    @GetMapping("/lb")
+    public String getPaymentPort(){
+        return port;
+    }
+
 
     /**
      * 获取该服务对外暴露的服务信息
