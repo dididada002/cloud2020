@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author: jingteng
  * @date: 2020/4/13 23:44
@@ -54,5 +56,14 @@ public class PaymentController {
     }
 
 
+    @GetMapping("/test/time/out")
+    public Result testTimeOut(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return Result.success(port);
+    }
 
 }

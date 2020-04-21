@@ -15,3 +15,9 @@ eureka:
       #      defaultZone: http://${eureka.instance.hostname}:7001/eureka
       #集群版，注册地址以逗号隔开
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+ribbon:
+  #http建立socket超时时间，毫秒
+  ConnectTimeout: 60000
+  #http读取响应socket超时时间
+  ReadTimeout: 60000

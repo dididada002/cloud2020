@@ -25,4 +25,9 @@ public class OrderOpenFeignController {
     public Result getById(@PathVariable("id") Long id){
         return paymentFeignService.getById(id);
     }
+
+    @GetMapping("/test/time/out")
+    public Result testTimeOut(){
+        return paymentFeignService.testTimeOut();
+    }
 }
