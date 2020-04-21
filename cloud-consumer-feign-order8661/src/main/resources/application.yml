@@ -21,3 +21,7 @@ ribbon:
   ConnectTimeout: 60000
   #http读取响应socket超时时间
   ReadTimeout: 60000
+
+logging:
+  level:
+    com.jt.springcloud.service.PaymentFeignService: debug
