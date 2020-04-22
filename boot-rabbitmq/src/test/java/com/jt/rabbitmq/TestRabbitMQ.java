@@ -41,4 +41,10 @@ public class TestRabbitMQ {
     public void testRoute(){
         rabbitTemplate.convertAndSend("directs","test","Route模型发送消息");
     }
+
+    //topic
+    @Test
+    public void testTopic(){
+        rabbitTemplate.convertAndSend("topics","user.save.new","user.save 发送消息");
+    }
 }
