@@ -29,4 +29,9 @@ public class TestRabbitMQ {
     public void testWork(){
         rabbitTemplate.convertAndSend("work","work模型");
     }
+
+    @Test
+    public void testFanout(){
+        rabbitTemplate.convertAndSend("logs","","Fanout模型发送消息");
+    }
 }
