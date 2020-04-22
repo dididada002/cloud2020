@@ -23,4 +23,10 @@ public class TestRabbitMQ {
     public void testHello(){
         rabbitTemplate.convertAndSend("hello","hello world");
     }
+
+    //work
+    @Test
+    public void testWork(){
+        rabbitTemplate.convertAndSend("work","work模型");
+    }
 }
