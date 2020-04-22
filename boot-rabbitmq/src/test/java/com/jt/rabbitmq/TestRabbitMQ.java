@@ -30,8 +30,15 @@ public class TestRabbitMQ {
         rabbitTemplate.convertAndSend("work","work模型");
     }
 
+    //fanout
     @Test
     public void testFanout(){
         rabbitTemplate.convertAndSend("logs","","Fanout模型发送消息");
+    }
+
+    //route
+    @Test
+    public void testRoute(){
+        rabbitTemplate.convertAndSend("directs","test","Route模型发送消息");
     }
 }
