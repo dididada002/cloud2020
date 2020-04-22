@@ -16,6 +16,7 @@
         <module>cloud-provider-payment8002</module>
         <module>cloud-provider-payment8004</module>
         <module>cloud-consumer-feign-order8661</module>
+        <module>boot-rabbitmq</module>
     </modules>
     <packaging>pom</packaging>
 
