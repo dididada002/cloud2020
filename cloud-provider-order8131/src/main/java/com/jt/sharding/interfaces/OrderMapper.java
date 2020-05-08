@@ -27,4 +27,6 @@ public interface OrderMapper {
             "        </foreach>" +"</script>")*/
     List<Map> selectOrderListByIdList(@Param("idList")List<Long> idList);
 
+    List<Map> selectOrderListByUserId(@Param("userId")Long userId);
+
 }

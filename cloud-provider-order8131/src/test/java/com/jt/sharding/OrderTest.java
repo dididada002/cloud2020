@@ -38,4 +38,10 @@ public class OrderTest {
         List<Map> maps = orderMapper.selectOrderListByIdList(idList);
         System.out.println(JSON.toJSON(maps));
     }
+
+    @Test
+    public void testSelectNoOrderId(){
+        List<Map> maps = orderMapper.selectOrderListByUserId(1L);
+        System.out.println(JSON.toJSON(maps));
+    }
 }

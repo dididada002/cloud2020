@@ -9,4 +9,8 @@
             #{id}
         </foreach>
     </select>
+    <select id="selectOrderListByUserId" resultType="java.util.Map">
+        SELECT t.order_id,t.order_status,t.price,t.user_id
+        FROM t_order AS t WHERE t.user_id = #{userId}
+    </select>
 </mapper>
