@@ -2,6 +2,7 @@ package com.jt.sharding;
 
 import com.alibaba.fastjson.JSON;
 import com.jt.sharding.interfaces.OrderMapper;
+import com.jt.sharding.interfaces.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,14 @@ import java.util.Map;
 public class OrderTest {
     @Autowired
     private OrderMapper orderMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
     @Test
     public void testInsert(){
         for (int i = 0; i < 10; i++) {
-            orderMapper.insertOrder(new BigDecimal(i),1L,"success");
+            orderMapper.insertOrder(new BigDecimal(i*2), (long) (i*2),"success");
         }
     }
 
@@ -43,5 +48,10 @@ public class OrderTest {
     public void testSelectNoOrderId(){
         List<Map> maps = orderMapper.selectOrderListByUserId(1L);
         System.out.println(JSON.toJSON(maps));
+    }
+
+    @Test
+    public void testIsertUser(){
+        userMapper.insertUser(1L,"测试",new Byte("0"));
     }
 }

@@ -11,7 +11,7 @@ spring:
   # sharding-jdbc配置
   shardingsphere:
     datasource:
-      names: m1,m2
+      names: m0,m1,m2
       m1:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
@@ -24,9 +24,23 @@ spring:
         url: jdbc:mysql://192.168.244.128:3306/order_db_2?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false&allowMultiQueries=true
         username: root
         password: root123456
+      m0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.244.128:3306/user_db?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false&allowMultiQueries=true
+        username: root
+        password: root123456
 
     sharding:
       tables:
+        t_user:
+          # 指定t_user表的数据分布情况，配置数据节点
+          actual-data-nodes: m0.t_user
+          # 指定t_user表的分片策略，分片算法包括分片键和分片算法
+          table-strategy:
+            inline:
+              sharding-column: user_id
+              algorithm-expression: t_user
         t_order:
           # 指定t_order表的数据分布情况，配置数据节点
           actual-data-nodes: m$->{1..2}.t_order_$->{1..2}
