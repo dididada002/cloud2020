@@ -25,11 +25,11 @@ spring:
         username: root
         password: root123456
 
-    # 指定t_order表的数据分布情况，配置数据节点
     sharding:
       tables:
         t_order:
-          actual-data-nodes: m1.t_order_$->{1..2}
+          # 指定t_order表的数据分布情况，配置数据节点
+          actual-data-nodes: m$->{1..2}.t_order_$->{1..2}
           # 指定t_order表的主键生成策略为SNOWFLAKE
           key-generator.column: order_id
           key-generator.type: SNOWFLAKE
