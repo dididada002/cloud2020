@@ -1,4 +1,3 @@
-create database `order_db` character set 'utf8' COLLATE 'utf8_general_ci';
 
 drop table if EXISTS `t_order_1`;
 CREATE TABLE `t_order_1` (
