@@ -25,6 +25,9 @@ public class OrderController {
 //    public static final String url = "http://localhost:8001";
     public static final String url = "http://CLOUD-PAYMENT-SERVICE";
 
+
+    public static final String serviceId = "CLOUD-PAYMENT-SERVICE";
+
     @Resource
     private RestTemplate restTemplate;
 
@@ -35,25 +38,29 @@ public class OrderController {
 
     @PostMapping("/pay")
     public Result create(@RequestBody PayCreateForm form){
-        return restTemplate.postForObject(url + "/pay/create",form,Result.class);
+        URI uri = getUriByInstanceName(serviceId);
+        return restTemplate.postForObject(uri + "/pay/create",form,Result.class);
 
     }
 
     @GetMapping("/get/by/{id}")
     public Result getById(@PathVariable("id") Long id){
-        return restTemplate.getForObject(url + "/pay/get/by/"+id,Result.class);
+        URI uri = getUriByInstanceName(serviceId);
+        return restTemplate.getForObject(uri + "/pay/get/by/"+id,Result.class);
     }
 
     @GetMapping("/consumer/payment/lb")
     public String getPaymentLB(){
-        //根据服务ID获取服务信息
-        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        URI uri = getUriByInstanceName(serviceId);
+        return restTemplate.getForObject(uri+"/pay/lb",String.class);
+
+    }
+    private URI getUriByInstanceName(String instanseName){
+        List<ServiceInstance> instances = discoveryClient.getInstances(instanseName);
         if (instances == null || instances.size() <= 0) {
             return null;
         }
         ServiceInstance instance = loadBalancer.instance(instances);
-        URI uri = instance.getUri();
-        return restTemplate.getForObject(uri+"/pay/lb",String.class);
-
+        return instance.getUri();
     }
 }
