@@ -57,6 +57,8 @@ spring:
             inline:
               sharding-column: order_id
               algorithm-expression: t_order_$->{order_id % 2 + 1}
+      # 配置公共表
+      broadcast-tables: t_dict
     props:
       sql:
         show: true
