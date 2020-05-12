@@ -1,6 +1,7 @@
 package com.jt.sharding;
 
 import com.alibaba.fastjson.JSON;
+import com.jt.sharding.interfaces.DictMapper;
 import com.jt.sharding.interfaces.OrderMapper;
 import com.jt.sharding.interfaces.UserMapper;
 import org.junit.Test;
@@ -26,6 +27,9 @@ public class OrderTest {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private DictMapper dictMapper;
 
     @Test
     public void testInsert(){
@@ -53,5 +57,11 @@ public class OrderTest {
     @Test
     public void testIsertUser(){
         userMapper.insertUser(1L,"测试",new Byte("0"));
+    }
+
+    @Test
+    public void testInsertDict(){
+        dictMapper.insert(1L,"user_type","1","admin");
+        dictMapper.insert(2L,"user_type","2","操作员");
     }
 }
