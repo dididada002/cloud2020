@@ -18,6 +18,7 @@
         <module>cloud-consumer-feign-order8661</module>
         <module>boot-rabbitmq</module>
         <module>cloud-provider-order8131</module>
+        <module>netty-nio-socket</module>
     </modules>
     <packaging>pom</packaging>
 
