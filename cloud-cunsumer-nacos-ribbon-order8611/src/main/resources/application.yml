@@ -1,0 +1,26 @@
+server:
+  port: 8611
+
+spring:
+  application:
+    name: cloud-cunsumer-nacos-ribbon-order-service
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 123.57.217.100:8848
+        #namespace: bc7613d2-2e22-4292-a748-48b78170f14c  #指定namespace的id
+
+#自定义Ribbon的细粒度配置
+ribbon:
+  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    #饥饿加载，第一次加载时间长
+#  eager-load:
+#    enabled: true
+cloud-payment-nacos-service1:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
+cloud-payment-nacos-service2:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
