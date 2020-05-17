@@ -7,6 +7,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
 
+import java.net.URI;
+
 /**
  * @author: jingteng
  * @date: 2020/5/17 23:10
@@ -23,6 +25,15 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
         if (msg instanceof HttpRequest){
             System.out.println("msg 类型是： " + msg.getClass());
             System.out.println("客户端地址是 ： " + ctx.channel().remoteAddress());
+
+            //过滤某些请求,这里用 /favicon.ico 举例
+            HttpRequest httpRequest = (HttpRequest) msg;
+            //获取uri
+            URI uri = new URI(httpRequest.uri());
+            if ("/favicon.ico".equals(uri.getPath())){
+                System.out.println("请求了 /favicon.ico ，不做响应");
+                return;
+            }
 
 
             //回复信息给客户端（http协议）
