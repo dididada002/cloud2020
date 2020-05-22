@@ -20,7 +20,8 @@ public class MyClientInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new MyLongToByteEncoder());
         pipeline.addLast(new MyStringToByteEncoder());
 
-        pipeline.addLast(new MyByteToLongDecoder());
+//        pipeline.addLast(new MyByteToLongDecoder());
+        pipeline.addLast(new MyByteToLongDecoder2());
 
         //加入自定义handler
         pipeline.addLast(new MyClientHandler());
