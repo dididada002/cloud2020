@@ -10,7 +10,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class MyClientHandler extends SimpleChannelInboundHandler<Long> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Long msg) throws Exception {
-        System.out.println("客户端开始读取数据");
+        System.out.println("客户端开始读取数据，服务器ip = " + ctx.channel().remoteAddress());
+        System.out.println("收到消息： " + msg);
     }
 
     @Override

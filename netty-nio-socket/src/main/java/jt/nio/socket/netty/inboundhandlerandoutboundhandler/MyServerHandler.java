@@ -15,6 +15,7 @@ public class MyServerHandler extends SimpleChannelInboundHandler<Long> {
         System.out.println(ctx.channel().id());
         System.out.println(ctx.channel().hashCode());
         System.out.println("读取数据： "+ ctx.channel().remoteAddress() + " 读取到数据： " + msg);
+        ctx.writeAndFlush(98765L);
 
     }
 
