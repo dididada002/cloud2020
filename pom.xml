@@ -19,6 +19,7 @@
         <module>boot-rabbitmq</module>
         <module>cloud-provider-order8131</module>
         <module>netty-nio-socket</module>
+        <module>study-pattern</module>
     </modules>
     <packaging>pom</packaging>
 
