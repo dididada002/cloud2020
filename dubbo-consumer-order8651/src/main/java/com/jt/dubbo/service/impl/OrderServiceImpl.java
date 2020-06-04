@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Reference//发现服务注解
+    @Reference(loadbalance = "roundrobin")//发现服务注解
     PayService payService;
     @Override
     public List<TestBean> test(String orderId) {
