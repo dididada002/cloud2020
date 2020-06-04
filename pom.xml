@@ -20,6 +20,7 @@
         <module>cloud-provider-order8131</module>
         <module>netty-nio-socket</module>
         <module>study-pattern</module>
+        <module>spring-rabbitmq</module>
     </modules>
     <packaging>pom</packaging>
 
