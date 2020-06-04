@@ -11,3 +11,6 @@ dubbo:
     protocol: zookeeper
   monitor:
     protocol: registry
+    #启动时不检查服务的提供方是否启动
+#  consumer:
+#    check: false
