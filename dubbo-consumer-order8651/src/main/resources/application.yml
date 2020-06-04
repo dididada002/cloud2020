@@ -1,0 +1,13 @@
+server:
+  port: 8651
+
+dubbo:
+  application:
+    #服务名称
+    name: dubbo-consumer-order8651
+  registry:
+    #注册中心
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+  monitor:
+    protocol: registry
