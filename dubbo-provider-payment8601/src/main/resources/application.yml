@@ -1,19 +1,19 @@
 server:
   port: 8601
-dubbo:
-  application:
-    #服务名称
-    name: dubbo-provider-payment8601
-  registry:
-    #注册中心
-    address: 127.0.0.1:2181
-    protocol: zookeeper
-  #通信规则
-  protocol:
-    #通信协议
-    name: dubbo
-    #通信端口
-    port: 20880
-  #监控中心
-  monitor:
-    protocol: registry
+#dubbo:
+#  application:
+#    #服务名称
+#    name: dubbo-provider-payment8601
+#  registry:
+#    #注册中心
+#    address: 127.0.0.1:2181
+#    protocol: zookeeper
+#  #通信规则
+#  protocol:
+#    #通信协议
+#    name: dubbo
+#    #通信端口
+#    port: 20880
+#  #监控中心
+#  monitor:
+#    protocol: registry
