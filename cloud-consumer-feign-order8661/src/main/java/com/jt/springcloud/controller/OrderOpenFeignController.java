@@ -1,12 +1,12 @@
 package com.jt.springcloud.controller;
 
+import com.jt.springcloud.model.request.OrderForm;
 import com.jt.springcloud.modul.vo.Result;
+import com.jt.springcloud.service.OrderService;
 import com.jt.springcloud.service.PaymentFeignService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -20,6 +20,14 @@ import javax.annotation.Resource;
 public class OrderOpenFeignController {
     @Resource
     private PaymentFeignService paymentFeignService;
+
+    @Autowired
+    private OrderService orderService;
+
+    @PostMapping("/pay")
+    public Result create(@RequestBody OrderForm form){
+        return orderService.create(form);
+    }
 
     @GetMapping("/get/by/{id}")
     public Result getById(@PathVariable("id") Long id){

@@ -4,6 +4,14 @@ server:
 spring:
   application:
     name: cloud-cunsumer-order-service
+  datasource:
+    # 当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    # mysql驱动类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.200.58.119:3306/cloud2?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false&allowMultiQueries=true
+    username: root
+    password: Jt!!2018
 
 eureka:
   instance:
@@ -19,3 +27,8 @@ eureka:
       #      defaultZone: http://${eureka.instance.hostname}:7001/eureka
       #集群版，注册地址以逗号隔开
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.jt.springcloud.entities

@@ -1,10 +1,12 @@
 package com.jt.springcloud.service;
 
+import com.jt.springcloud.modul.request.PayCreateForm;
 import com.jt.springcloud.modul.vo.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * @author: jingteng
@@ -19,4 +21,6 @@ public interface PaymentFeignService {
     @GetMapping("/pay/test/time/out")
     Result testTimeOut();
 
+    @PostMapping("/pay/create")
+    Result create(PayCreateForm payCreateForm);
 }
