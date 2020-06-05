@@ -19,6 +19,10 @@
         <module>boot-rabbitmq</module>
         <module>cloud-provider-order8131</module>
         <module>netty-nio-socket</module>
+        <module>study-pattern</module>
+        <module>spring-rabbitmq</module>
+        <module>dubbo-provider-payment8601</module>
+        <module>dubbo-consumer-order8651</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -37,6 +41,7 @@
         <mybatis.spring.boot.version>1.3.2</mybatis.spring.boot.version>
         <json.version>1.2.47</json.version>
         <devtools.version>2.0.4.RELEASE</devtools.version>
+        <dubbo.version>2.7.7</dubbo.version>
     </properties>
 
     <dependencyManagement>
