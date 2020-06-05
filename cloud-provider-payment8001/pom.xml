@@ -91,6 +91,12 @@
             <artifactId>fastjson</artifactId>
             <version>${json.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-seata -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-seata</artifactId>
+            <version>${seata.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

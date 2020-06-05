@@ -61,6 +61,13 @@
             <!--如果没写版本,从父层面找,找到了就直接用,全局统一-->
             <version>${druid.spring.boot.starter.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-seata -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-seata</artifactId>
+            <version>${seata.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

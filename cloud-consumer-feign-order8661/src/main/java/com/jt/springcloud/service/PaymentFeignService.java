@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @date: 2020/4/20 23:09
  */
 @Component
-@FeignClient(value = "CLOUD-PAYMENT-SERVICE")
+@FeignClient(value = "CLOUD-PAYMENT-SERVICE",fallback = PaymentFeignServiceFallback.class)
 public interface PaymentFeignService {
     @GetMapping("/pay/get/by/{id}")
     public Result getById(@PathVariable("id") Long id);
