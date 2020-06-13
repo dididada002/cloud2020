@@ -12,8 +12,13 @@ public class Client {
         //1-创建一个观察者
         CurrentConditions currentConditions = new CurrentConditions();
 
+        //2扩展了一个观察者
+        JTObserver jtObserver = new JTObserver();
+
         //1-注册到服务提供方
         weatherData.registerObserver(currentConditions);
+        //2扩展了一个观察者
+        weatherData.registerObserver(jtObserver);
 
         System.out.println("***************通知全部注册的观察者*****************");
         weatherData.setData(10,100,12312);
