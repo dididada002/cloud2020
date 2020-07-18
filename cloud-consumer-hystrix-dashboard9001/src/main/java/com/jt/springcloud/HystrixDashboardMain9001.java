@@ -13,6 +13,7 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 public class HystrixDashboardMain9001 {
     /**
      * 访问地址：http://localhost:9001/hystrix
+     * 监控地址 http://localhost:8001/hystrix.stream
      * @param args
      */
     public static void main(String[] args) {
