@@ -6,15 +6,22 @@ spring:
     name: cloud-gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true #开启从注册中心动态创建路由的功能，利用微服务名进行路由
       routes:
 #        - id: payment_route1
 #          uri: http://localhost:8007
 #          predicates:
 #            - Path=/pay/hys/**
-        - id: payment_route2
-          uri: http://localhost:8007
+        - id: payment_route2    #路由id，没有固定规则，保证唯一就行
+          uri: http://localhost:8007  #路由的目标地址
           predicates:
-            - Path=/pay/lb
+            - Path=/pay/lb  #断言，匹配路径
+        - id: payment_route3    #路由id，没有固定规则，保证唯一就行
+          uri: lb://cloud-payment-service  #路由的目标地址 根据服务名进行动态路由
+          predicates:
+            - Path=/pay/get/by/**  #断言，匹配路径
 eureka:
   instance:
     hostname: localhost
