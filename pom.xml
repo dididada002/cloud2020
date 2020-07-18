@@ -23,6 +23,8 @@
         <module>spring-rabbitmq</module>
         <module>dubbo-provider-payment8601</module>
         <module>dubbo-consumer-order8651</module>
+        <module>cloud-consumer-feign-order8662</module>
+        <module>cloud-provider-hystric-payment8001</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -122,6 +124,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.2.2.RELEASE</version>
                 <configuration>
                     <fork>true</fork>
                     <addResources>true</addResources>
