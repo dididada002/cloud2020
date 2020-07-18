@@ -1,0 +1,32 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-server
+  cloud:
+    config: #配置读取配置文件的服务以及路径
+      server:
+        git:
+          uri: https://github.com/dididada002/springcloud-config.git
+          search-paths:
+            - springcloud-config
+      label: master
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: cloud-gateway-service
+    prefer-ip-address: true #访问路径可以显示IP地址
+#    lease-renewal-interval-in-seconds: 1 #Eureka客户端向服务端发送心跳的时间间隔，单位是秒，默认是30秒
+#    lease-expiration-duration-in-seconds: 2 #Eureka服务端收到最后一次心跳后等待时间上限，超时将剔除服务，单位是秒，默认90秒
+  client:
+    #true表示向注册中心注册自己
+    register-with-eureka: true
+    #true表示自己端就是注册中心，职责就是维护服务实例，并不需要去检索服务
+    fetch-registry: true
+    service-url:
+      #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址
+      #单机版
+      defaultZone: http://eureka7001.com:7001/eureka
+      #集群版，注册地址以逗号隔开
+#      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
