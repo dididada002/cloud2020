@@ -7,6 +7,7 @@ import com.jt.springcloud.modul.vo.Result;
 import com.jt.springcloud.service.PayService;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -67,5 +68,23 @@ public class PayServiceImpl implements PayService {
         String result = "线程池 "  + Thread.currentThread().getName() + ".....testOk    id:   " +form.getId();
         log.info(result);
         return Result.success(result);
+    }
+
+    @Override
+    @HystrixCommand(fallbackMethod = "testRongDuan_handler", commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled",value = "true"),//是否开启断路器
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "3"),//请求次数
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "10000"),//时间窗口期
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "20"),//失败率达到多少后跳闸
+    })
+    public Result testRongDuan(Integer id) {
+        if (id > 0){
+            throw new RuntimeException("****  id 不能为负数  异常");
+        }
+        return Result.success("服务的熔断测试成功。。。。");
+    }
+
+    public Result testRongDuan_handler(Integer id) {
+        return Result.failureParam("id 不能为负数，发生错误了");
     }
 }

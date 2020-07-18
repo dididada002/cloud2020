@@ -41,6 +41,15 @@ public class PaymentController {
         return payService.testOk(form);
     }
 
+    @PostMapping("/hys/rongduan")
+    public Result testRongDuan(@RequestBody HysTestForm form){
+        Integer id = form.getId();
+        if (id > 0){
+            throw new RuntimeException("****  id 不能为负数  异常");
+        }
+        return payService.testRongDuan(id);
+    }
+
     @PostMapping("/hys/timeout")
     public Result testTimeOut(@RequestBody HysTestForm form){
         return payService.testTimeOut(form);

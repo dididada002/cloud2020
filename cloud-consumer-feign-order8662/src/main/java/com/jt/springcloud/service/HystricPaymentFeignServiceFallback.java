@@ -26,4 +26,9 @@ public class HystricPaymentFeignServiceFallback implements HystricPaymentFeignSe
         log.info(result);
         return Result.failureParam(result);
     }
+
+    @Override
+    public Result testRongDuan(HysTestForm form) {
+        return Result.failureParam("异常了");
+    }
 }

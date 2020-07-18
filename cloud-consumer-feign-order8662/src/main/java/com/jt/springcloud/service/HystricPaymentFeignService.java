@@ -20,4 +20,7 @@ public interface HystricPaymentFeignService {
 
     @PostMapping("/pay/hys/timeout")
     Result testTimeOut(@RequestBody HysTestForm form);
+
+    @PostMapping("/pay/hys/rongduan")
+    Result testRongDuan(HysTestForm form);
 }

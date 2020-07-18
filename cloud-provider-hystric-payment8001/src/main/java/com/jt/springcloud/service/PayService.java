@@ -16,4 +16,6 @@ public interface PayService {
     Result testTimeOut(HysTestForm form);
 
     Result testOk(HysTestForm form);
+
+    Result testRongDuan(Integer id);
 }

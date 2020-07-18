@@ -37,6 +37,11 @@ public class OrderOpenFeignController {
         return hystricPaymentFeignService.testOk(form);
     }
 
+    @PostMapping("/hys/rongduan")
+    public Result testRongDuan(@RequestBody HysTestForm form){
+        return hystricPaymentFeignService.testRongDuan(form);
+    }
+
     @PostMapping("/hys/timeout")
     @HystrixCommand(fallbackMethod = "testTimeOutHandler",commandProperties = {//规定这个接口被调用在多长时间内属于正常范围
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds" ,value = "1000")
