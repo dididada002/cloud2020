@@ -30,6 +30,9 @@
         <module>cloud-provider-payment8003</module>
         <module>cloud-config-center-3344</module>
         <module>cloud-config-client-3355</module>
+        <module>cloudalibaba-provider-payment9101</module>
+        <module>cloudalibaba-provider-payment9102</module>
+        <module>cloudalibaba-consumer-nacos-order9661</module>
     </modules>
     <packaging>pom</packaging>
 
